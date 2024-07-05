@@ -3,13 +3,13 @@ import { View, Text, TouchableOpacity, Switch } from 'react-native';
 import styles from './styles/style';
 import { Task } from '@/types/types';
 
-interface TaskItemProps {
+type Props = {
   task: Task;
-  onToggleTaskStatus: (id: string) => void;
-  onDeleteTask: (id: string) => void;
-}
+  onToggleTaskStatus: (id: number) => void;
+  onDeleteTask: (id: number) => void;
+};
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleTaskStatus, onDeleteTask }) => {
+const TaskItem: React.FC<Props> = ({ task, onToggleTaskStatus, onDeleteTask }) => {
   return (
     <View style={[styles.taskContainer, task.status && styles.taskDone]}>
       <Text style={styles.taskTitle}>{task.title}</Text>
